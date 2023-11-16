@@ -19,4 +19,4 @@ jobs:
     uses: ./.github/workflows/flutter-build.yml
     with:
             upload-artifact: true
-            upload-tag: "1.2.4"
+            upload-tag: "1.2.3"
