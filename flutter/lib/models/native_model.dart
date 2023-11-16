@@ -124,7 +124,7 @@ class PlatformFFI {
       } catch (e) {
         debugPrint('Failed to get documents directory: $e');
       }
-      _ffiBind = RustdeskImpl(dylib);
+      _ffiBind = TeamdeskImpl(dylib);
       if (Platform.isLinux) {
         // Start a dbus service, no need to await
         _ffiBind.mainStartDbusServer();
@@ -219,7 +219,7 @@ class PlatformFFI {
   void _startListenEvent(TeamdeskImpl teamdeskImpl) {
     final appType =
         _appType == kAppTypeDesktopRemote ? '$_appType,$kWindowId' : _appType;
-    var sink = rustdeskImpl.startGlobalEventStream(appType: appType);
+    var sink = teamdeskImpl.startGlobalEventStream(appType: appType);
     sink.listen((message) {
       () async {
         try {
