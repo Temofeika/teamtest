@@ -32,6 +32,7 @@ env:
   RS_PUB_KEY: '${{ secrets.RS_PUB_KEY }}'
   RENDEZVOUS_SERVER: '${{ secrets.RENDEZVOUS_SERVER }}'
   API_SERVER: '${{ secrets.API_SERVER }}'
+  APP_NAME: '${{ secrets.APP_NAME }}'
   UPLOAD_ARTIFACT: "${{ inputs.upload-artifact }}"
 
 jobs:
