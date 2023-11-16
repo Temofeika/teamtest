@@ -492,7 +492,7 @@ def main():
             return
         system2('cargo build --release --features ' + features)
         # system2('upx.exe target/release/teamdesk.exe')
-        system2('mv target/release/rustdesk.exe target/release/TeamDesk.exe')
+        system2('mv target/release/teamdesk.exe target/release/TeamDesk.exe')
         pa = os.environ.get('P')
         if pa:
             system2(
