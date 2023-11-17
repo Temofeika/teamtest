@@ -65,7 +65,7 @@ const val AUDIO_CHANNEL_MASK = AudioFormat.CHANNEL_IN_STEREO
 class MainService : Service() {
 
     init {
-        System.loadLibrary("rustdesk")
+        System.loadLibrary("teamdesk")
     }
 
     @Keep
@@ -154,7 +154,7 @@ class MainService : Service() {
     private var serviceHandler: Handler? = null
 
     private val powerManager: PowerManager by lazy { applicationContext.getSystemService(Context.POWER_SERVICE) as PowerManager }
-    private val wakeLock: PowerManager.WakeLock by lazy { powerManager.newWakeLock(PowerManager.ACQUIRE_CAUSES_WAKEUP or PowerManager.SCREEN_BRIGHT_WAKE_LOCK, "rustdesk:wakelock")}
+    private val wakeLock: PowerManager.WakeLock by lazy { powerManager.newWakeLock(PowerManager.ACQUIRE_CAUSES_WAKEUP or PowerManager.SCREEN_BRIGHT_WAKE_LOCK, "teamdesk:wakelock")}
 
     // jvm call rust
     private external fun init(ctx: Context)
@@ -460,7 +460,7 @@ class MainService : Service() {
             return
         }
         virtualDisplay = mp.createVirtualDisplay(
-            "RustDeskVD",
+            "TeamDeskVD",
             SCREEN_INFO.width, SCREEN_INFO.height, SCREEN_INFO.dpi, VIRTUAL_DISPLAY_FLAG_AUTO_MIRROR,
             surface, null, null
         )
@@ -476,7 +476,7 @@ class MainService : Service() {
             it.setCallback(cb)
             it.start()
             virtualDisplay = mp.createVirtualDisplay(
-                "RustDeskVD",
+                "TeamDeskVD",
                 SCREEN_INFO.width, SCREEN_INFO.height, SCREEN_INFO.dpi, VIRTUAL_DISPLAY_FLAG_AUTO_MIRROR,
                 surface, null, null
             )
@@ -600,13 +600,13 @@ class MainService : Service() {
     private fun initNotification() {
         notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         notificationChannel = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val channelId = "RustDesk"
-            val channelName = "RustDesk Service"
+            val channelId = "TeamDesk"
+            val channelName = "TeamDesk Service"
             val channel = NotificationChannel(
                 channelId,
                 channelName, NotificationManager.IMPORTANCE_HIGH
             ).apply {
-                description = "RustDesk Service Channel"
+                description = "TeamDesk Service Channel"
             }
             channel.lightColor = Color.BLUE
             channel.lockscreenVisibility = Notification.VISIBILITY_PRIVATE
