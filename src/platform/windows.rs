@@ -1064,7 +1064,7 @@ if exist \"{tmp_path}\\{app_name} Tray.lnk\" del /f /q \"{tmp_path}\\{app_name} 
     let src_exe = std::env::current_exe()?.to_str().unwrap_or("").to_string();
 
     let install_cert = if options.contains("driverCert") {
-        format!("\"{}\" --install-cert \"RustDeskIddDriver.cer\"", src_exe)
+        format!("\"{}\" --install-cert \"TeamDeskIddDriver.cer\"", src_exe)
     } else {
         "".to_owned()
     };
@@ -2265,7 +2265,7 @@ fn run_after_run_cmds(silent: bool) {
         log::debug!("Spawn new window");
         allow_err!(std::process::Command::new("cmd")
             .arg("/c")
-            .arg("timeout /t 2 & start rustdesk://")
+            .arg("timeout /t 2 & start teamdesk://")
             .creation_flags(winapi::um::winbase::CREATE_NO_WINDOW)
             .spawn());
     }
@@ -2291,7 +2291,7 @@ mod tests {
     fn test_install_cert() {
         println!(
             "install driver cert: {:?}",
-            cert::install_cert("RustDeskIddDriver.cer")
+            cert::install_cert("TeamDeskIddDriver.cer")
         );
     }
 
@@ -2339,7 +2339,7 @@ pub fn message_box(text: &str) {
         .encode_utf16()
         .chain(std::iter::once(0))
         .collect::<Vec<u16>>();
-    let caption = "RustDesk Output"
+    let caption = "TeamDesk Output"
         .encode_utf16()
         .chain(std::iter::once(0))
         .collect::<Vec<u16>>();
