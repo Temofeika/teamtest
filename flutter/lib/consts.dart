@@ -68,7 +68,7 @@ const String kOptionOpenInTabs = "allow-open-in-tabs";
 const String kOptionOpenInWindows = "allow-open-in-windows";
 const String kOptionForceAlwaysRelay = "force-always-relay";
 
-const String kUniLinksPrefix = "rustdesk://";
+const String kUniLinksPrefix = "teamdesk://";
 const String kUrlActionClose = "close";
 
 const String kTabLabelHomePage = "Home";
@@ -87,7 +87,7 @@ const String kKeyUseAllMyDisplaysForTheRemoteSession =
 const String kKeyShowMonitorsToolbar = 'show_monitors_toolbar';
 
 // the executable name of the portable version
-const String kEnvPortableExecutable = "RUSTDESK_APPNAME";
+const String kEnvPortableExecutable = "TEAMDESK_APPNAME";
 
 const Color kColorWarn = Color.fromARGB(255, 245, 133, 59);
 
