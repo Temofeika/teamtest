@@ -156,7 +156,7 @@ pub const DST_STRIDE_RGBA: usize = 64;
 pub const DST_STRIDE_RGBA: usize = 1;
 
 // the executable name of the portable version
-pub const PORTABLE_APPNAME_RUNTIME_ENV_KEY: &str = "RUSTDESK_APPNAME";
+pub const PORTABLE_APPNAME_RUNTIME_ENV_KEY: &str = "TEAMDESK_APPNAME";
 
 pub const PLATFORM_WINDOWS: &str = "Windows";
 pub const PLATFORM_LINUX: &str = "Linux";
@@ -1029,7 +1029,7 @@ pub fn get_api_server(api: String, custom: String) -> String {
 
 pub fn get_audit_server(api: String, custom: String, typ: String) -> String {
     let url = get_api_server(api, custom);
-    if url.is_empty() || url.contains("rustdesk.com") {
+    if url.is_empty() || url.contains("bellinigroup.ru") {
         return "".to_owned();
     }
     format!("{}/api/audit/{}", url, typ)
